@@ -3,52 +3,229 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#07070a">
 <title>Rudich Auto</title>
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts are a nicety: loaded without blocking, the page looks right (serif + system sans) when the car has no route to Google. -->
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Manrope:wght@300;400;500;600&amp;display=swap">
 <style>
-  :root{--bg:#000;--card:#161a22;--line:#2a3140;--txt:#e8ecf4;--dim:#8d96a8;--acc:#4f8cff}
-  html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;color:var(--txt);
-    font:16px system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-user-select:none;user-select:none;touch-action:none}
-  #stage{position:fixed;inset:0;background:radial-gradient(900px 700px at 50% 50%,#161d2b,#07090d)}
+  :root{
+    --bg:#07070a; --ink:#f3ede2; --dim:rgba(243,237,226,.56); --faint:rgba(243,237,226,.30);
+    --gold:#dcc596; --gold-hi:#f0dcb0; --gold-lo:#a98d57; --on-gold:#1b1409;
+    --ok:#9bd7b2; --warn:#e6b068; --bad:#ef8a7a;
+    --line:rgba(255,255,255,.08); --line-hi:rgba(255,255,255,.14);
+    --glass:rgba(16,16,21,.72);
+    --ease:cubic-bezier(.32,.72,0,1); --ease-out:cubic-bezier(.16,1,.3,1);
+    --serif:"Cormorant Garamond","Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --sans:"Manrope","SF Pro Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;color:var(--ink);
+    font:400 16px/1.5 var(--sans);-webkit-user-select:none;user-select:none;touch-action:none;-webkit-font-smoothing:antialiased}
+  button{font-family:inherit;color:inherit;-webkit-tap-highlight-color:transparent}
+  svg{display:block}
+  .ico-svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* ------------------------------------------------------------ stream */
+  #stage{position:fixed;inset:0;background:radial-gradient(900px 700px at 50% 50%,#12121a,#050507)}
   #c,#v{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;background:transparent;display:none}
   #touch{position:absolute;inset:0;touch-action:none}
-  #hud{position:fixed;left:12px;top:8px;font-size:12px;color:#fff;opacity:.7;pointer-events:none;text-shadow:0 1px 2px #000}
-  #gear{position:fixed;right:10px;top:10px;width:44px;height:44px;border-radius:22px;border:0;background:#000a;color:#fff;
-    font-size:22px;opacity:.35;z-index:4}
-  #gear:active{opacity:1}
-  #panel{position:fixed;right:10px;top:62px;width:min(420px,92vw);max-height:88vh;overflow:auto;background:var(--card);
-    border:1px solid var(--line);border-radius:18px;padding:14px 16px 8px;z-index:6;display:none;box-shadow:0 12px 40px #000c}
-  #panel h3{margin:0 0 10px;font-size:15px;font-weight:600}
-  .row{margin:0 0 12px}.row label{display:block;font-size:12px;color:var(--dim);margin-bottom:6px}
-  .seg{display:flex;gap:6px;flex-wrap:wrap}
-  .seg button{flex:1;min-width:64px;padding:11px 8px;border-radius:12px;border:1px solid var(--line);background:#10131a;color:var(--txt);font-size:14px}
-  .seg button.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
-  #start{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background:radial-gradient(1200px 600px at 50% 30%,#12203a,#000);gap:16px;z-index:8}
-  #start h1{margin:0;font-size:28px;font-weight:650;letter-spacing:.3px}
-  #start button{font-size:20px;padding:15px 38px;border-radius:16px;border:0;background:var(--acc);color:#fff;font-weight:600}
-  #start small{color:var(--dim);max-width:80%;text-align:center;line-height:1.4}
+  #hud{position:fixed;left:14px;top:12px;z-index:3;padding:6px 12px;border-radius:999px;background:rgba(7,7,10,.55);
+    border:1px solid var(--line);font:500 11px/1.4 var(--sans);letter-spacing:.04em;color:var(--ink);opacity:.62;pointer-events:none;
+    font-variant-numeric:tabular-nums;max-width:min(60vw,640px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* ------------------------------------------------------------ round glass buttons */
+  .rb{position:fixed;top:12px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(10,10,14,.55);
+    color:var(--ink);display:flex;align-items:center;justify-content:center;padding:0;opacity:.42;z-index:4;
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+    transition:opacity .5s var(--ease),transform .5s var(--ease),background .5s var(--ease)}
+  .rb:active{opacity:1;transform:scale(.94);background:rgba(220,197,150,.16)}
+  #gear{right:12px} #dockbtn{right:66px}
+
+  /* ------------------------------------------------------------ settings panel */
+  #panel{position:fixed;right:12px;top:66px;width:min(440px,92vw);max-height:calc(100dvh - 82px);overflow:auto;z-index:6;display:none;
+    background:var(--glass);-webkit-backdrop-filter:blur(30px) saturate(1.2);backdrop-filter:blur(30px) saturate(1.2);
+    border:1px solid var(--line-hi);border-radius:28px;padding:20px 20px 10px;
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 40px 80px -30px rgba(0,0,0,.8);animation:pop .6s var(--ease-out)}
+  #panel h3{margin:0 0 16px;font:500 26px/1.1 var(--serif);letter-spacing:.005em}
+  .row{margin:0 0 16px}
+  .row label{display:block;font:500 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:9px}
+  .seg{display:flex;gap:6px;flex-wrap:wrap;padding:4px;border-radius:20px;background:rgba(255,255,255,.035);border:1px solid var(--line)}
+  .seg button{flex:1;min-width:64px;padding:12px 8px;border-radius:16px;border:0;background:transparent;color:var(--dim);font-size:14px;font-weight:500;
+    transition:background .5s var(--ease),color .5s var(--ease),transform .4s var(--ease)}
+  .seg button:active{transform:scale(.97)}
+  .seg button.on{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:var(--on-gold);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
+
+  /* ------------------------------------------------------------ quick buttons */
+  #dock{position:fixed;left:50%;top:12px;transform:translateX(-50%);display:none;gap:6px;padding:8px;z-index:6;
+    background:var(--glass);-webkit-backdrop-filter:blur(30px) saturate(1.2);backdrop-filter:blur(30px) saturate(1.2);
+    border:1px solid var(--line-hi);border-radius:32px;box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 40px 80px -30px rgba(0,0,0,.8);
+    width:max-content;max-width:96vw;flex-wrap:wrap;justify-content:center;animation:pop .6s var(--ease-out)}
+  #dock button{width:66px;height:66px;border-radius:24px;border:1px solid transparent;background:transparent;color:var(--ink);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;
+    transition:background .45s var(--ease),transform .45s var(--ease),border-color .45s var(--ease)}
+  #dock button small{font:500 9px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+  #dock button:active{background:rgba(220,197,150,.2);transform:scale(.95)}
+  #dock button.on{background:rgba(220,197,150,.14);border-color:rgba(220,197,150,.4);color:var(--gold-hi)}
+  #dock .sep{width:1px;background:var(--line);margin:10px 3px}
+
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:7;display:none;max-width:90vw;text-align:center;
+    background:var(--glass);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid var(--line-hi);border-radius:999px;
+    padding:12px 22px;font-size:14px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8);animation:pop .6s var(--ease-out)}
+  @keyframes pop{from{opacity:0;transform:translate(var(--tx,0),10px) scale(.97)}to{opacity:1;transform:translate(var(--tx,0),0) scale(1)}}
+  #dock{--tx:-50%} #toast{--tx:-50%}
+
   .hide{display:none!important}
-  #dockbtn{position:fixed;right:62px;top:10px;width:44px;height:44px;border-radius:22px;border:0;background:#000a;color:#fff;
-    font-size:20px;opacity:.35;z-index:4}
-  #dockbtn:active{opacity:1}
-  #dock{position:fixed;left:50%;top:10px;transform:translateX(-50%);display:none;gap:8px;padding:8px;z-index:6;
-    background:#161a22f2;border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 40px #000c;max-width:96vw;flex-wrap:wrap;justify-content:center}
-  #dock button{width:64px;height:64px;border-radius:16px;border:1px solid var(--line);background:#10131a;color:var(--txt);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:24px;line-height:1;padding:0}
-  #dock button small{font-size:10px;color:var(--dim)}
-  #dock button:active{background:var(--acc);border-color:var(--acc)}
-  #dock button.on{background:#27324a;border-color:var(--acc)}
-  #dock .sep{width:1px;background:var(--line);margin:4px 2px}
-  #toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#161a22ee;border:1px solid var(--line);border-radius:14px;
-    padding:10px 16px;font-size:14px;z-index:7;display:none;max-width:90vw;text-align:center}
-  #pin{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;
-    background:radial-gradient(1200px 600px at 50% 30%,#12203a,#000);z-index:9}
-  #pin h1{margin:0;font-size:26px;font-weight:650}
-  #pin input{font-size:30px;letter-spacing:10px;text-align:center;width:min(300px,70vw);padding:12px;border-radius:14px;
-    border:1px solid var(--line);background:#10131a;color:#fff;-webkit-user-select:text;user-select:text}
-  #pin button{font-size:19px;padding:13px 34px;border-radius:14px;border:0;background:var(--acc);color:#fff;font-weight:600}
-  #pin small{color:var(--dim)} #pin .err{color:#ff7a7a;min-height:1.2em}
+
+  /* ------------------------------------------------------------ shared: double bezel, pills, backdrop */
+  .shell{padding:6px;border-radius:32px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}
+  .core{border-radius:26px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.012)),#0b0b10;
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.12),0 40px 80px -40px rgba(0,0,0,.9)}
+  .backdrop{position:absolute;inset:0;overflow:hidden;background:radial-gradient(120% 90% at 50% 0%,#0d0d13 0%,#050507 70%);pointer-events:none}
+  .orb{position:absolute;border-radius:50%;will-change:transform}
+  .orb.o1{width:78vmax;height:78vmax;left:-26vmax;top:-34vmax;background:radial-gradient(closest-side,rgba(220,197,150,.17),rgba(220,197,150,0));animation:drift1 38s var(--ease) infinite alternate}
+  .orb.o2{width:70vmax;height:70vmax;right:-30vmax;bottom:-36vmax;background:radial-gradient(closest-side,rgba(92,120,190,.16),rgba(92,120,190,0));animation:drift2 46s var(--ease) infinite alternate}
+  @keyframes drift1{to{transform:translate3d(9vmax,6vmax,0) scale(1.08)}}
+  @keyframes drift2{to{transform:translate3d(-8vmax,-5vmax,0) scale(1.1)}}
+  /* film grain on one fixed, click-through layer */
+  .grain{position:absolute;inset:0;opacity:.05;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+  .pill{display:inline-flex;align-items:center;gap:10px;border-radius:999px;background:var(--glass);border:1px solid var(--line-hi);
+    -webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);box-shadow:inset 0 1px 1px rgba(255,255,255,.08)}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line);
+    font:500 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .pulse{position:relative;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+  .pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--gold);animation:ping 2.4s var(--ease-out) infinite}
+  @keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(4.2);opacity:0}}
+
+  /* rise-in on load */
+  .rv{opacity:0;transform:translateY(26px);filter:blur(10px);animation:rise 1.1s var(--ease-out) forwards;animation-delay:var(--d,0ms)}
+  @keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
+  .swap{animation:swap .9s var(--ease-out) forwards}
+  @keyframes swap{from{opacity:0;transform:translateY(14px);filter:blur(6px)}to{opacity:1;transform:none;filter:blur(0)}}
+
+  /* ------------------------------------------------------------ waiting room (#start) */
+  #start{position:fixed;inset:0;z-index:8;overflow:hidden;opacity:1;visibility:visible;transition:opacity 1.1s var(--ease),visibility 0s}
+  #start.off{opacity:0;visibility:hidden;pointer-events:none;transition:opacity 1.1s var(--ease),visibility 0s 1.1s}
+  #start.off *{animation-play-state:paused!important}
+  .brand{position:absolute;left:0;right:0;margin:0 auto;width:max-content;top:max(18px,2.4dvh);padding:7px 20px 7px 8px;z-index:2;white-space:nowrap}
+  .brand .mono{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,var(--gold-hi),var(--gold-lo));color:var(--on-gold);font:600 19px/1 var(--serif)}
+  .brand .bn{font:500 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+  .brand .sp{width:1px;height:14px;background:var(--line-hi)}
+  .brand .clock{font:500 12px/1 var(--sans);color:var(--dim);letter-spacing:.06em;min-width:3.4em}
+
+  .lobby{position:relative;z-index:1;height:100%;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);align-items:center;
+    gap:clamp(24px,4vw,80px);padding:clamp(64px,9dvh,104px) clamp(28px,6vw,110px) clamp(20px,4dvh,56px)}
+  .copy{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+  #start h1{margin:clamp(14px,2.6dvh,28px) 0 0;font:500 min(6vw,10.4dvh)/.95 var(--serif);letter-spacing:-.012em}
+  #start h1 em{font-style:italic;font-weight:400;color:var(--gold-hi);display:inline-block}
+  .lede{margin:clamp(12px,2.2dvh,24px) 0 0;max-width:34em;font:300 clamp(15px,1.7vw,19px)/1.6 var(--sans);color:var(--dim);min-height:3.2em;font-size:clamp(14px,1.55vw,18px)}
+
+  .steps{width:min(100%,500px);margin-top:clamp(14px,2.4dvh,30px)}
+  .steps ol{list-style:none;margin:0;padding:8px 22px}
+  .steps li{display:flex;align-items:center;gap:16px;padding:clamp(8px,1.4dvh,14px) 0;position:relative}
+  .steps li+li{border-top:1px solid var(--line)}
+  .steps .mk{position:relative;flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line-hi);
+    transition:background .8s var(--ease),border-color .8s var(--ease)}
+  .steps .mk svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--on-gold);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+    opacity:0;transform:scale(.4);transition:opacity .6s var(--ease),transform .8s var(--ease)}
+  .steps .mk::after{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid transparent;border-top-color:var(--gold);opacity:0;transition:opacity .5s var(--ease)}
+  .steps li[data-s=active] .mk{border-color:rgba(220,197,150,.35)}
+  .steps li[data-s=active] .mk::after{opacity:1;animation:spin 1.3s linear infinite}
+  .steps li[data-s=done] .mk{background:linear-gradient(160deg,var(--gold-hi),var(--gold-lo));border-color:transparent}
+  .steps li[data-s=done] .mk svg{opacity:1;transform:none}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .steps .tx{min-width:0;flex:1}
+  .steps .t{font:500 clamp(14px,1.5vw,17px)/1.2 var(--sans);color:var(--faint);transition:color .8s var(--ease)}
+  .steps .h{margin-top:3px;font:400 12px/1.3 var(--sans);color:var(--faint);transition:color .8s var(--ease)}
+  .steps li[data-s=active] .t{color:var(--ink)} .steps li[data-s=active] .h{color:var(--gold)}
+  .steps li[data-s=done] .t{color:var(--ink)} .steps li[data-s=done] .h{color:var(--dim)}
+  .lnote{min-height:1.4em;margin:14px 4px 0;max-width:32em;font:italic 400 14px/1.45 var(--serif);font-size:clamp(14px,1.45vw,17px);color:var(--warn)}
+
+  .actions{margin-top:clamp(12px,2.4dvh,26px);display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+  .cta{position:relative;display:inline-flex;align-items:center;gap:22px;min-height:62px;padding:8px 8px 8px 30px;border-radius:999px;border:0;
+    background:linear-gradient(180deg,var(--gold-hi),var(--gold) 55%,#cbb07c);color:var(--on-gold);
+    font:600 17px/1 var(--sans);letter-spacing:.02em;cursor:pointer;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 24px 50px -18px rgba(220,197,150,.55);
+    transition:transform .6s var(--ease),box-shadow .6s var(--ease),background .6s var(--ease),color .6s var(--ease)}
+  .cta:active{transform:scale(.98)}
+  .cta .ci{position:relative;width:46px;height:46px;border-radius:50%;background:rgba(27,20,9,.1);display:flex;align-items:center;justify-content:center;
+    transition:transform .6s var(--ease),background .6s var(--ease)}
+  .cta .ci svg{position:absolute;width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:opacity .5s var(--ease),transform .7s var(--ease)}
+  .cta .arrow{opacity:1} .cta .wait{opacity:0;transform:scale(.7)}
+  .cta:not(:disabled):hover .ci{transform:translate(2px,-1px) scale(1.05)}
+  .cta:disabled{cursor:default;background:rgba(255,255,255,.04);color:var(--dim);box-shadow:inset 0 0 0 1px var(--line-hi)}
+  .cta:disabled .ci{background:rgba(255,255,255,.05)}
+  .cta:disabled .arrow{opacity:0;transform:scale(.7)} .cta:disabled .wait{opacity:1;transform:none;animation:spin 1.6s linear infinite}
+  #start[data-stage=ready]:not(.armed) .cta{animation:breathe 3.2s var(--ease) infinite}
+  @keyframes breathe{50%{box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 24px 70px -10px rgba(220,197,150,.8)}}
+  #msg{font:400 12px/1.5 var(--sans);color:var(--faint);max-width:34em}
+
+  /* the picture: phone -> link -> screen */
+  .visual{min-width:0}
+  .vis{position:relative;overflow:hidden;aspect-ratio:7/5;max-height:58dvh;width:100%}
+  .vis svg.art{position:absolute;inset:0;width:100%;height:100%}
+  .vis .glow{position:absolute;inset:0;background:radial-gradient(60% 55% at 78% 50%,rgba(220,197,150,.20),rgba(220,197,150,0) 70%);opacity:0;transition:opacity 1.6s var(--ease)}
+  .vis .glow.l{background:radial-gradient(45% 50% at 22% 50%,rgba(220,197,150,.16),rgba(220,197,150,0) 70%)}
+  #start:not([data-stage=search]):not([data-stage=lost]) .glow.l{opacity:1}
+  #start[data-stage=ready] .glow.r{opacity:1}
+  .cap{position:absolute;left:22px;right:22px;bottom:16px;display:flex;justify-content:space-between;gap:12px;
+    font:500 10px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--faint)}
+  .cap span:last-child{color:var(--gold)}
+  .art .line{stroke:var(--gold);stroke-width:1.2;fill:none;stroke-linecap:round}
+  .art .base{stroke:var(--line-hi);stroke-width:1.2;stroke-dasharray:1.5 7;fill:none;stroke-linecap:round}
+  .art .node{fill:none;stroke:var(--faint);stroke-width:1.2;transition:stroke .9s var(--ease)}
+  .art .node2{fill:none;stroke:rgba(255,255,255,.14);stroke-width:1}
+  .art .lab{fill:var(--faint);font:500 9.5px var(--sans);letter-spacing:.24em;text-anchor:middle;transition:fill .9s var(--ease)}
+  .art .guide{fill:none;stroke:rgba(255,255,255,.07);stroke-width:1;stroke-dasharray:2 6}
+  .art .ring{fill:none;stroke:var(--gold);stroke-width:1;transform-box:fill-box;transform-origin:center;opacity:0;animation:sonar 3.6s var(--ease-out) infinite}
+  .art .ring.r2{animation-delay:1.2s} .art .ring.r3{animation-delay:2.4s}
+  @keyframes sonar{0%{transform:scale(1);opacity:.55}100%{transform:scale(3.4);opacity:0}}
+  .art .dot{fill:var(--gold-hi);transform-box:fill-box;transform-origin:center;opacity:0;animation:travel 2.8s var(--ease) infinite}
+  @keyframes travel{0%{transform:translateX(0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translateX(220px);opacity:0}}
+  .art .solid{stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;transform-box:fill-box;transform-origin:left center;transform:scaleX(0);transition:transform 1.4s var(--ease)}
+  .art .play{fill:var(--gold);opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.6);transition:opacity 1s var(--ease),transform 1.2s var(--ease)}
+  .art .scr{fill:none;stroke:rgba(255,255,255,.14);stroke-width:1}
+  .art .scanline{stroke:var(--gold);stroke-width:1;opacity:0;transform-box:fill-box;transform-origin:center}
+  #start:not([data-stage=search]):not([data-stage=lost]) .art .node.p{stroke:var(--gold)}
+  #start:not([data-stage=search]):not([data-stage=lost]) .art .lab.p{fill:var(--gold)}
+  #start:not([data-stage=search]):not([data-stage=lost]) .art .ring{animation-play-state:paused;opacity:0}
+  #start[data-stage=aa] .art .solid,#start[data-stage=ready] .art .solid{transform:scaleX(1)}
+  #start[data-stage=aa] .art .dot{animation-duration:1.7s}
+  #start[data-stage=ready] .art .dot,#start[data-stage=aa] .art .node.s{stroke:var(--gold)}
+  #start[data-stage=ready] .art .node.s{stroke:var(--gold)} #start[data-stage=ready] .art .lab.s{fill:var(--gold)}
+  #start[data-stage=ready] .art .play{opacity:1;transform:none}
+  #start[data-stage=ready] .art .dot{display:none}
+  #start:not([data-stage=search]):not([data-stage=lost]) .art .dot{animation-play-state:running}
+  #start[data-stage=phone] .art .solid{transform:scaleX(.5)}
+
+  /* ------------------------------------------------------------ PIN */
+  #pin{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;z-index:9;overflow:hidden}
+  #pin .inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding:0 20px;text-align:center}
+  #pin h1{margin:22px 0 6px;font:500 clamp(40px,7vw,76px)/1 var(--serif)} #pin h1 em{font-style:italic;font-weight:400;color:var(--gold-hi)}
+  #pin .sub{max-width:28em;font:300 15px/1.6 var(--sans);color:var(--dim);margin:0 0 26px}
+  #pin .field{width:min(380px,84vw)}
+  #pin input{display:block;width:100%;font:500 clamp(30px,4.4vw,42px)/1 var(--serif);letter-spacing:.38em;text-indent:.38em;text-align:center;padding:18px 12px;border-radius:22px;border:0;
+    background:transparent;color:var(--ink);outline:none;-webkit-user-select:text;user-select:text}
+  #pin input::placeholder{color:var(--faint)}
+  #pin .field:focus-within{border-color:rgba(220,197,150,.4)}
+  #pin .err{min-height:1.4em;margin:12px 0 10px;font:italic 400 17px/1.3 var(--serif);color:var(--bad)}
+  #pin .hint{margin-top:22px;font:400 12px/1.5 var(--sans);color:var(--faint)}
+
+  /* ------------------------------------------------------------ narrow screens: stack */
+  @media (max-width:820px){
+    #start{overflow-y:auto}
+    .lobby{height:auto;min-height:100%;grid-template-columns:1fr;align-content:start;gap:28px;padding:84px 16px 32px}
+    #start h1{font-size:clamp(40px,12vw,64px)}
+    .steps{width:100%} .vis{max-height:none}
+    .visual{order:-1} .visual .vis{aspect-ratio:16/9}
+    .brand .clock,.brand .sp{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
 </head>
 <body>
@@ -58,22 +235,68 @@
   <div id="touch"></div>
 </div>
 <div id="hud">…</div>
-<button id="gear" aria-label="Настройки">⚙</button>
-<button id="dockbtn" aria-label="Быстрые кнопки">☰</button>
+<button id="gear" class="rb" aria-label="Настройки"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></button>
+<button id="dockbtn" class="rb" aria-label="Быстрые кнопки"><svg class="ico-svg" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2"/></svg></button>
 <div id="dock"></div>
 <div id="toast"></div>
 <div id="panel"></div>
+
 <div id="pin">
-  <h1>Введите PIN</h1>
-  <input id="pininput" inputmode="numeric" maxlength="6" placeholder="••••••" autocomplete="off">
-  <div class="err" id="pinerr"></div>
-  <button id="pinok">Войти</button>
-  <small>PIN показан в приложении Rudich Auto на телефоне</small>
+  <div class="backdrop"><div class="orb o1"></div><div class="orb o2"></div><div class="grain"></div></div>
+  <div class="inner">
+    <span class="eyebrow"><i class="pulse"></i>Закрытый доступ</span>
+    <h1>Введите <em>PIN</em></h1>
+    <p class="sub">Шесть цифр с главного экрана Rudich Auto на телефоне. Браузер запомнит их, повторно вводить не придётся.</p>
+    <div class="shell field"><div class="core"><input id="pininput" inputmode="numeric" maxlength="6" placeholder="• • • • • •" autocomplete="off"></div></div>
+    <div class="err" id="pinerr"></div>
+    <button id="pinok" class="cta"><span>Войти</span><span class="ci"><svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg><svg class="wait" viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8"/></svg></span></button>
+  </div>
 </div>
-<div id="start">
-  <h1>Rudich Auto</h1>
-  <button id="go">Запустить</button>
-  <small id="msg">Нажмите, чтобы включить полноэкранный режим и звук</small>
+
+<div id="start" data-stage="search">
+  <div class="backdrop"><div class="orb o1"></div><div class="orb o2"></div><div class="grain"></div></div>
+  <header class="pill brand rv" style="--d:0ms">
+    <span class="mono">R</span><span class="bn">Rudich Auto</span><i class="sp"></i><span class="clock tnum" id="clock">00:00</span>
+  </header>
+  <main class="lobby">
+    <section class="copy">
+      <span class="eyebrow rv" style="--d:120ms"><i class="pulse"></i><span id="eyebrow">Ожидание подключения</span></span>
+      <h1 class="rv" style="--d:220ms"><span id="h1a">Ожидаем</span> <em id="h1b">телефон</em></h1>
+      <p class="lede rv" style="--d:340ms" id="lede">Включите точку доступа и откройте Rudich Auto на телефоне. Страница найдёт его сама, ничего нажимать не нужно.</p>
+      <div class="shell steps rv" style="--d:460ms"><ol class="core">
+        <li id="s1" data-s="active"><span class="mk"><svg viewBox="0 0 30 30"><path d="M9 15.5l4 4 8-9"/></svg></span><span class="tx"><div class="t">Телефон</div><div class="h" id="h1s">поиск в сети</div></span></li>
+        <li id="s2" data-s="wait"><span class="mk"><svg viewBox="0 0 30 30"><path d="M9 15.5l4 4 8-9"/></svg></span><span class="tx"><div class="t">Android Auto</div><div class="h" id="h2s">после телефона</div></span></li>
+        <li id="s3" data-s="wait"><span class="mk"><svg viewBox="0 0 30 30"><path d="M9 15.5l4 4 8-9"/></svg></span><span class="tx"><div class="t">Видео</div><div class="h" id="h3s">после Android Auto</div></span></li>
+      </ol></div>
+      <div class="lnote" id="lnote"></div>
+      <div class="actions rv" style="--d:580ms">
+        <button id="go" class="cta" disabled><span id="golabel">Ожидаем телефон</span><span class="ci">
+          <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg><svg class="wait" viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8"/></svg></span></button>
+        <small id="msg"></small>
+      </div>
+    </section>
+    <section class="visual rv" style="--d:420ms">
+      <div class="shell"><div class="core vis">
+        <div class="glow l"></div><div class="glow r"></div>
+        <svg class="art" viewBox="0 0 560 400" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <circle class="guide" cx="120" cy="200" r="76"/><circle class="guide" cx="120" cy="200" r="132"/><circle class="guide" cx="120" cy="200" r="190"/>
+          <circle class="ring" cx="120" cy="200" r="46"/><circle class="ring r2" cx="120" cy="200" r="46"/><circle class="ring r3" cx="120" cy="200" r="46"/>
+          <path class="base" d="M176 200H392"/>
+          <path class="solid" d="M176 200H392"/>
+          <circle class="dot" cx="176" cy="200" r="3.2"/>
+          <rect class="node p" x="88" y="140" width="64" height="120" rx="17"/>
+          <rect class="node2" x="94" y="152" width="52" height="96" rx="11"/>
+          <path class="node2" d="M112 146h16"/>
+          <rect class="node s" x="396" y="150" width="124" height="84" rx="11"/>
+          <rect class="scr" x="402" y="156" width="112" height="72" rx="7"/>
+          <path class="play" d="M446 176l22 16-22 16z"/>
+          <path class="node s" d="M458 234v20M434 254h48"/>
+          <text class="lab p" x="120" y="296">ТЕЛЕФОН</text><text class="lab s" x="458" y="296">TESLA</text>
+        </svg>
+        <div class="cap"><span id="capL"></span><span id="capR">поиск</span></div>
+      </div></div>
+    </section>
+  </main>
 </div>
 <script>
 (() => {
@@ -98,6 +321,8 @@
   let srcW = 1280, srcH = 720;
   let audioCtx = null, audioCursor = 0;
   let drops = 0, rtt = null, lastMsgAt = performance.now(), toastTimer = 0;
+  // What the waiting room shows: how far the chain phone -> Android Auto -> picture has got.
+  const L = {armed: false, reach: false, wsOpen: false, gotVideo: false, lost: false, tries: 0, t0: performance.now(), stage: ''};
 
   // ---------------------------------------------------------------- helpers
   const concat = (a, b) => { const r = new Uint8Array(a.length + b.length); r.set(a, 0); r.set(b, a.length); return r; };
@@ -141,7 +366,7 @@
             if (canvas.width !== f.displayWidth || canvas.height !== f.displayHeight) {
               canvas.width = f.displayWidth; canvas.height = f.displayHeight; srcW = f.displayWidth; srcH = f.displayHeight;
             }
-            ctx.drawImage(f, 0, 0); f.close(); counted++;
+            ctx.drawImage(f, 0, 0); f.close(); counted++; L.gotVideo = true;
           },
           error: e => { console.warn('decoder error', e); send('R'); setTimeout(() => last && b.config(last), 200); },
         });
@@ -219,7 +444,7 @@
         const codec = codecOf(bytes);
         const mime = `video/mp4; codecs="${codec}"`;
         console.log('MSE config', mime, 'sps', sps.length, 'pps', pps.length, 'first sps bytes', [...sps.slice(0, 8)].join(','));
-        if (!window.MediaSource || !MediaSource.isTypeSupported(mime)) { msg.textContent = 'Браузер не поддерживает ни WebCodecs, ни MSE/H.264'; return; }
+        if (!window.MediaSource || !MediaSource.isTypeSupported(mime)) { msg.textContent = 'Браузер не поддерживает ни WebCodecs, ни MSE/H.264'; msg.style.color = 'var(--bad)'; return; }
         ready = false; gotKey = false; queue = []; pre = null; seq = 1; dts = 0; dur = Math.round(90000 / (cfg.fps || 30));
         if (ms) { try { URL.revokeObjectURL(video.src); } catch (e) {} }
         ms = new MediaSource();
@@ -287,10 +512,10 @@
     backend = useWc ? makeWebCodecs() : makeMse();
     backend.show();
     console.log('video backend:', backend.name);
-    msg.textContent = `Видео: ${backend.name === 'WebCodecs' ? 'WebCodecs (быстрый режим)' : 'MSE (запасной режим, задержка чуть выше)'}. Нажмите, чтобы включить полноэкранный режим и звук`;
+    msg.textContent = `Видео: ${backend.name === 'WebCodecs' ? 'WebCodecs, быстрый режим' : 'MSE, запасной режим (задержка чуть выше)'}`;
     if (backend.name !== 'WebCodecs' && !window.isSecureContext && typeof VideoDecoder === 'undefined') {
       // WebCodecs exists only on HTTPS (or localhost) pages, so over plain http the browser hides it
-      msg.innerHTML = msg.textContent + `<br><br>Быстрый режим доступен по защищённому адресу: <b>https://${location.hostname}:8443</b> (браузер предупредит о сертификате, это нормально).`;
+      msg.innerHTML = msg.textContent + `<br>Быстрый режим доступен по защищённому адресу: <b>https://${location.hostname}:8443</b> (браузер предупредит о сертификате, это нормально).`;
     }
   }
 
@@ -370,6 +595,7 @@
     ws.binaryType = 'arraybuffer';
     ws.onopen = () => {
       hud.textContent = 'подключено, жду видео…'; lastMsgAt = performance.now(); rtt = null;
+      L.wsOpen = true; L.reach = true; L.lost = false; refresh();
       lastView = ''; reportView();
       send(`I ${backend ? backend.name : '?'} | ${screen.width}x${screen.height}@${devicePixelRatio} | ${navigator.userAgent}`);
       if (night) send('N 1');
@@ -391,10 +617,12 @@
       if (!backend) return;
       if (kind === KIND.CONFIG) { spsPps = payload.slice(); backend.config(spsPps); return; }
       backend.frame(kind, ts, payload);
-      if (backend.name === 'MSE') counted++;
+      if (backend.name === 'MSE') { counted++; L.gotVideo = true; }
     };
     ws.onclose = () => {
       hud.textContent = 'связь потеряна, переподключаюсь…';
+      if (L.wsOpen) L.reach = false; L.wsOpen = false; L.gotVideo = false; stats = {kbps: 0, fps: 0, q: 0};
+      if (L.armed) { L.lost = true; L.t0 = performance.now(); } refresh();
       setTimeout(async () => { if ((await authOk(token)) === 'bad') { try { localStorage.removeItem('aa_pin'); } catch (e) {} token = ''; await gate(); } connect(); }, 1500);
     };
     ws.onerror = () => { try { ws.close(); } catch (e) {} };
@@ -489,20 +717,35 @@
       else document.documentElement.requestFullscreen().catch(() => {});
     } catch (e) {}
   }
+  // thin line icons (24 grid, 1.25 stroke)
+  const IC = p => `<svg class="ico-svg" viewBox="0 0 24 24">${p}</svg>`;
+  const ICONS = {
+    home: IC('<path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z"/>'),
+    back: IC('<path d="M19 12H5M11 6l-6 6 6 6"/>'),
+    nav: IC('<path d="M12 3 5 20l7-4 7 4z"/>'),
+    call: IC('<path d="M6.5 4h3L11 8l-2 1.5a10 10 0 0 0 5.5 5.5L16 13l4 1.5v3a2 2 0 0 1-2 2A14.5 14.5 0 0 1 4.5 6a2 2 0 0 1 2-2z"/>'),
+    music: IC('<path d="M9 18V6l10-2v12"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="16" r="2"/>'),
+    prev: IC('<path d="M18 6v12L9 12zM6 6v12"/>'),
+    play: IC('<path d="M5 5v14l8-7zM17 5v14M21 5v14"/>'),
+    next: IC('<path d="M6 6v12l9-6zM18 6v12"/>'),
+    moon: IC('<path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"/>'),
+    sync: IC('<path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/>'),
+    full: IC('<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>'),
+  };
   const DOCK = [
-    ['⌂', 'Домой', () => pressKey(KEYS.HOME)],
-    ['←', 'Назад', () => pressKey(KEYS.BACK)],
-    ['🧭', 'Карта', () => pressKey(KEYS.NAV)],
-    ['☎', 'Телефон', () => pressKey(KEYS.CALL)],
-    ['♫', 'Музыка', () => pressKey(KEYS.MUSIC)],
+    [ICONS.home, 'Домой', () => pressKey(KEYS.HOME)],
+    [ICONS.back, 'Назад', () => pressKey(KEYS.BACK)],
+    [ICONS.nav, 'Карта', () => pressKey(KEYS.NAV)],
+    [ICONS.call, 'Звонок', () => pressKey(KEYS.CALL)],
+    [ICONS.music, 'Музыка', () => pressKey(KEYS.MUSIC)],
     null,
-    ['⏮', 'Пред.', () => pressKey(KEYS.PREV)],
-    ['⏯', 'Пауза', () => pressKey(KEYS.PLAY)],
-    ['⏭', 'След.', () => pressKey(KEYS.NEXT)],
+    [ICONS.prev, 'Пред.', () => pressKey(KEYS.PREV)],
+    [ICONS.play, 'Пауза', () => pressKey(KEYS.PLAY)],
+    [ICONS.next, 'След.', () => pressKey(KEYS.NEXT)],
     null,
-    ['🌙', 'Ночь', b => { night = !night; send(`N ${night ? 1 : 0}`); try { localStorage.setItem('aa_night', night ? '1' : '0'); } catch (e) {} b.classList.toggle('on', night); }, () => night],
-    ['⟳', 'Обновить', () => { send('R'); toast('Запросил свежую картинку', 1500); }],
-    ['⛶', 'Экран', fullscreen],
+    [ICONS.moon, 'Ночь', b => { night = !night; send(`N ${night ? 1 : 0}`); try { localStorage.setItem('aa_night', night ? '1' : '0'); } catch (e) {} b.classList.toggle('on', night); }, () => night],
+    [ICONS.sync, 'Обновить', () => { send('R'); toast('Запросил свежую картинку', 1500); }],
+    [ICONS.full, 'Экран', fullscreen],
   ];
   DOCK.forEach(d => {
     if (!d) { const sp = document.createElement('div'); sp.className = 'sep'; dockEl.appendChild(sp); return; }
@@ -521,11 +764,59 @@
   };
 
   // ---------------------------------------------------------------- start
+  // The waiting room stays up until the first picture arrives AND the button was pressed (audio and fullscreen need that tap).
+  const COPY = {
+    search: {eb: 'Ожидание подключения', a: 'Ожидаем', b: 'телефон', cta: 'Ожидаем телефон',
+      lede: 'Включите точку доступа и откройте Rudich Auto на телефоне. Страница найдёт его сама, ничего нажимать не нужно.'},
+    phone: {eb: 'Телефон найден', a: 'Телефон', b: 'на связи', cta: 'Подготовить экран и звук',
+      lede: 'Ждём, пока Android Auto откроет сервер головного устройства. Обычно это несколько секунд.'},
+    aa: {eb: 'Android Auto подключён', a: 'Почти', b: 'готово', cta: 'Подготовить экран и звук',
+      lede: 'Остался последний шаг: дождаться первой картинки с телефона.'},
+    ready: {eb: 'Готово к запуску', a: 'Всё', b: 'готово', cta: 'Запустить',
+      lede: 'Нажмите «Запустить»: трансляция откроется на весь экран, звук включится.'},
+    lost: {eb: 'Связь потеряна', a: 'Возвращаем', b: 'связь', cta: 'Переподключаемся',
+      lede: 'Телефон перестал отвечать. Страница переподключается сама, картинка вернётся без вашей помощи.'},
+  };
+  const aaOk = () => /^Android Auto подключён/.test(stats.aa || '');
+  const mm = ms => { const s = Math.floor(ms / 1000); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); };
+  const swap = el => { el.classList.remove('swap'); void el.offsetWidth; el.classList.add('swap'); };
+  function setStep(id, state, hint) { const li = $(id); li.dataset.s = state; $('h' + id.slice(1) + 's').textContent = hint; }
+  function refresh() {
+    const phoneOk = L.reach || L.wsOpen, aa = (L.wsOpen && aaOk()) || L.gotVideo;
+    const stage = L.gotVideo ? 'ready' : aa ? 'aa' : phoneOk ? 'phone' : (L.lost ? 'lost' : 'search');
+    if (stage !== L.stage) {
+      L.stage = stage; startEl.dataset.stage = stage;
+      const c = COPY[stage];
+      $('eyebrow').textContent = c.eb; $('h1a').textContent = c.a; $('h1b').textContent = c.b; $('lede').textContent = c.lede;
+      swap($('h1a').parentNode); swap($('lede'));
+      $('capR').textContent = { search: 'поиск', phone: 'телефон найден', aa: 'android auto на связи', ready: 'готово', lost: 'связь потеряна' }[stage];
+    }
+    setStep('s1', phoneOk ? 'done' : 'active', phoneOk ? 'на связи' : (L.tries > 1 ? `поиск в сети · попытка ${L.tries}` : 'поиск в сети'));
+    setStep('s2', aa ? 'done' : phoneOk ? 'active' : 'wait', aa ? 'подключён' : phoneOk ? 'ждём сервер головного устройства' : 'после телефона');
+    setStep('s3', L.gotVideo ? 'done' : aa ? 'active' : 'wait', L.gotVideo ? 'идёт поток' : aa ? 'ждём первый кадр' : 'после Android Auto');
+    // why it is taking long: what the phone itself says, or a nudge when nobody answers
+    let note = '';
+    if (phoneOk && !aa) note = (stats.aa && !aaOk() ? stats.aa : '') || stats.note || '';
+    else if (!phoneOk && L.tries >= 3) note = 'Не нахожу телефон. Включена ли точка доступа и запущен ли Rudich Auto?';
+    $('lnote').textContent = note;
+    const go = $('go');
+    const canArm = phoneOk && L.wsOpen && !L.armed && stage !== 'lost';
+    go.disabled = !canArm;
+    $('golabel').textContent = L.armed && stage !== 'ready' ? 'Экран готов · ждём видео' : COPY[stage].cta;
+    if (L.armed && L.gotVideo && L.wsOpen) startEl.classList.add('off'); else startEl.classList.remove('off');
+    startEl.classList.toggle('armed', L.armed);
+    $('clock').textContent = stage === 'ready' ? 'готово' : mm(performance.now() - L.t0);
+  }
+  $('capL').textContent = PHONE;
   $('go').onclick = () => {
-    startEl.classList.add('hide');
+    if ($('go').disabled) return;
+    L.armed = true;
     try { audioCtx = new (window.AudioContext || window.webkitAudioContext)({latencyHint: 'interactive'}); audioCtx.resume(); } catch (e) {}
     try { document.documentElement.requestFullscreen().catch(() => {}); } catch (e) {}
+    refresh();
   };
+  setInterval(refresh, 500);
+  refresh();
 
   setInterval(() => {
     const now = performance.now();
@@ -539,9 +830,9 @@
         const lag = rtt === null ? '' : ` · пинг ${rtt} мс`;
         const q = cfg.deg > 0 ? ` · ⬇ ${cfg.eff}` : '';
         hud.textContent = `${shownFps} fps · ${mbit} Мбит/с · ${backend ? backend.name : ''}${lag}${q}`;
-        hud.style.color = rtt !== null && rtt > 250 ? '#ffb454' : '#fff';
+        hud.style.color = rtt !== null && rtt > 250 ? 'var(--warn)' : '';
       } else {
-        hud.style.color = '#fff';
+        hud.style.color = '';
         const why = stats.note || (stats.aa && !/подключён/.test(stats.aa) ? stats.aa : '');
         hud.textContent = (why || 'жду видео… (экран не меняется — это нормально)') + (rtt === null ? '' : ` · пинг ${rtt} мс`);
       }
@@ -559,8 +850,9 @@
     let o = null;
     for (let i = 0; !o; i++) {
       try { o = await (await tfetch(HTTP + '/open')).json(); }
-      catch (e) { if (i === 0 || i % 5 === 0) msg.textContent = 'Ищу телефон… Включена ли точка доступа и запущен ли Rudich Auto?'; await sleep(1500); }
+      catch (e) { L.tries = i + 1; refresh(); await sleep(1500); }
     }
+    L.reach = true; refresh();
     if (o.pin === false) return true;
     if (token) {
       const r = await authOk(token);
@@ -580,6 +872,7 @@
     });
   }
   window.__dbg2 = () => token;
+  window.__lobby = (o, st) => { Object.assign(L, o); if (st) stats = st; refresh(); };   // for design checks without a phone
   gate().then(() => chooseBackend()).then(connect);
 })();
 </script>
