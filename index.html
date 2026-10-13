@@ -88,6 +88,8 @@
   const PHONE = REMOTE ? 'auto.rudichauto.space:8443' : location.host;
   const HTTP = REMOTE ? 'https://' + PHONE : '';
   const sleep = ms => new Promise(r => setTimeout(r, ms));
+  // fetch that gives up: an unreachable phone (address claimed by a VPN that is not up yet) otherwise hangs for minutes
+  const tfetch = (url, ms = 3000) => { const c = new AbortController(); const t = setTimeout(() => c.abort(), ms); return fetch(url, {cache: 'no-store', signal: c.signal}).finally(() => clearTimeout(t)); };
   let token = params.get('k') || '';
   try { token = token || localStorage.getItem('aa_pin') || ''; } catch (e) {}
 
@@ -549,14 +551,14 @@
   window.__dbg = () => ({backend: backend && backend.name, buf: video.buffered.length ? [video.buffered.start(0), video.buffered.end(video.buffered.length - 1)] : null,
     t: video.currentTime, rs: video.readyState, err: video.error && video.error.message});
   async function authOk(pin) {
-    try { const r = await fetch(HTTP + '/auth?k=' + encodeURIComponent(pin), {cache: 'no-store'}); return r.status === 200 ? 'ok' : (r.status === 429 ? 'blocked' : 'bad'); }
+    try { const r = await tfetch(HTTP + '/auth?k=' + encodeURIComponent(pin)); return r.status === 200 ? 'ok' : (r.status === 429 ? 'blocked' : 'bad'); }
     catch (e) { return 'net'; }
   }
   async function gate() {
     // Phone not reachable yet (hotspot or VPN still coming up): keep looking instead of asking for a PIN nobody can check.
     let o = null;
     for (let i = 0; !o; i++) {
-      try { o = await (await fetch(HTTP + '/open', {cache: 'no-store'})).json(); }
+      try { o = await (await tfetch(HTTP + '/open')).json(); }
       catch (e) { if (i === 0 || i % 5 === 0) msg.textContent = 'Ищу телефон… Включена ли точка доступа и запущен ли Rudich Auto?'; await sleep(1500); }
     }
     if (o.pin === false) return true;
