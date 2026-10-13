@@ -33,20 +33,23 @@
   #stage{position:fixed;inset:0;background:radial-gradient(900px 700px at 50% 50%,#12121a,#050507)}
   #c,#v{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;background:transparent;display:none}
   #touch{position:absolute;inset:0;touch-action:none}
-  #hud{position:fixed;left:14px;top:12px;z-index:3;padding:6px 12px;border-radius:999px;background:rgba(7,7,10,.55);
+  body.menu #hud{opacity:0!important}
+  #hud{position:fixed;left:calc(14px + env(safe-area-inset-left,0px));top:calc(12px + env(safe-area-inset-top,0px));z-index:3;padding:6px 12px;border-radius:999px;background:rgba(7,7,10,.55);
     border:1px solid var(--line);font:500 11px/1.4 var(--sans);letter-spacing:.04em;color:var(--ink);opacity:.62;pointer-events:none;
-    font-variant-numeric:tabular-nums;max-width:min(60vw,640px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    font-variant-numeric:tabular-nums;max-width:min(calc(100vw - 190px),640px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
   /* ------------------------------------------------------------ round glass buttons */
-  .rb{position:fixed;top:12px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(10,10,14,.55);
-    color:var(--ink);display:flex;align-items:center;justify-content:center;padding:0;opacity:.42;z-index:4;
+  .rb{position:relative;flex:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(10,10,14,.55);
+    color:var(--ink);display:flex;align-items:center;justify-content:center;padding:0;opacity:.42;
     -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
     transition:opacity .5s var(--ease),transform .5s var(--ease),background .5s var(--ease)}
   .rb:active{opacity:1;transform:scale(.94);background:rgba(220,197,150,.16)}
-  #gear{right:12px} #dockbtn{right:66px}
+  /* both round buttons live in one cluster in the corner: they keep their spacing and stay inside the window whatever its shape */
+  #ctl{position:fixed;z-index:4;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));
+    display:flex;flex-direction:row-reverse;gap:8px;align-items:center}
 
   /* ------------------------------------------------------------ settings panel */
-  #panel{position:fixed;right:12px;top:66px;width:min(440px,92vw);max-height:calc(100dvh - 82px);overflow:auto;z-index:6;display:none;
+  #panel{position:fixed;right:calc(12px + env(safe-area-inset-right,0px));top:calc(66px + env(safe-area-inset-top,0px));width:min(440px,92vw);max-height:calc(100vh - 82px);overflow:auto;z-index:6;display:none;
     background:var(--glass);-webkit-backdrop-filter:blur(30px) saturate(1.2);backdrop-filter:blur(30px) saturate(1.2);
     border:1px solid var(--line-hi);border-radius:28px;padding:20px 20px 10px;
     box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 40px 80px -30px rgba(0,0,0,.8);animation:pop .6s var(--ease-out)}
@@ -60,10 +63,10 @@
   .seg button.on{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:var(--on-gold);box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
 
   /* ------------------------------------------------------------ quick buttons */
-  #dock{position:fixed;left:50%;top:12px;transform:translateX(-50%);display:none;gap:6px;padding:8px;z-index:6;
+  #dock{position:fixed;left:0;right:0;margin:0 auto;top:calc(12px + env(safe-area-inset-top,0px));display:none;gap:6px;padding:8px;z-index:6;
     background:var(--glass);-webkit-backdrop-filter:blur(30px) saturate(1.2);backdrop-filter:blur(30px) saturate(1.2);
     border:1px solid var(--line-hi);border-radius:32px;box-shadow:inset 0 1px 1px rgba(255,255,255,.1),0 40px 80px -30px rgba(0,0,0,.8);
-    width:max-content;max-width:96vw;flex-wrap:wrap;justify-content:center;animation:pop .6s var(--ease-out)}
+    width:max-content;max-width:calc(100vw - 260px);flex-wrap:wrap;justify-content:center;animation:pop .6s var(--ease-out)}
   #dock button{width:66px;height:66px;border-radius:24px;border:1px solid transparent;background:transparent;color:var(--ink);
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;
     transition:background .45s var(--ease),transform .45s var(--ease),border-color .45s var(--ease)}
@@ -72,11 +75,10 @@
   #dock button.on{background:rgba(220,197,150,.14);border-color:rgba(220,197,150,.4);color:var(--gold-hi)}
   #dock .sep{width:1px;background:var(--line);margin:10px 3px}
 
-  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:7;display:none;max-width:90vw;text-align:center;
+  #toast{position:fixed;left:0;right:0;margin:0 auto;width:max-content;bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:7;display:none;max-width:90vw;text-align:center;
     background:var(--glass);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid var(--line-hi);border-radius:999px;
     padding:12px 22px;font-size:14px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8);animation:pop .6s var(--ease-out)}
-  @keyframes pop{from{opacity:0;transform:translate(var(--tx,0),10px) scale(.97)}to{opacity:1;transform:translate(var(--tx,0),0) scale(1)}}
-  #dock{--tx:-50%} #toast{--tx:-50%}
+  @keyframes pop{from{opacity:0;transform:translateY(10px) scale(.97)}to{opacity:1;transform:none}}
 
   .hide{display:none!important}
 
@@ -235,8 +237,10 @@
   <div id="touch"></div>
 </div>
 <div id="hud">…</div>
+<div id="ctl">
 <button id="gear" class="rb" aria-label="Настройки"><svg class="ico-svg" viewBox="0 0 24 24"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></button>
 <button id="dockbtn" class="rb" aria-label="Быстрые кнопки"><svg class="ico-svg" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="2"/></svg></button>
+</div>
 <div id="dock"></div>
 <div id="toast"></div>
 <div id="panel"></div>
@@ -755,6 +759,9 @@
     b.onclick = () => { d[2](b); armDock(); };
     dockEl.appendChild(b);
   });
+  // the status line steps aside while a menu is open, so it never runs under the dock or the settings panel
+  const syncMenu = () => document.body.classList.toggle('menu', dockEl.style.display === 'flex' || panel.style.display === 'block');
+  [dockEl, panel].forEach(el => new MutationObserver(syncMenu).observe(el, {attributes: true, attributeFilter: ['style']}));
   function armDock() { clearTimeout(dockTimer); dockTimer = setTimeout(() => { dockEl.style.display = 'none'; }, 7000); }
   $('dockbtn').onclick = () => {
     panel.style.display = 'none';
@@ -829,7 +836,8 @@
       if (shownFps > 0) {
         const lag = rtt === null ? '' : ` · пинг ${rtt} мс`;
         const q = cfg.deg > 0 ? ` · ⬇ ${cfg.eff}` : '';
-        hud.textContent = `${shownFps} fps · ${mbit} Мбит/с · ${backend ? backend.name : ''}${lag}${q}`;
+        const geo = cfg.fitName === 'AUTO' ? ` · окно ${Math.round(innerWidth)}×${Math.round(innerHeight)} → кадр ${cfg.uw}×${cfg.uh}` : '';
+        hud.textContent = `${shownFps} fps · ${mbit} Мбит/с · ${backend ? backend.name : ''}${lag}${q}${geo}`;
         hud.style.color = rtt !== null && rtt > 250 ? 'var(--warn)' : '';
       } else {
         hud.style.color = '';
