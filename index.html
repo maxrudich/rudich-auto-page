@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Rudich Auto</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+  :root{--bg:#000;--card:#161a22;--line:#2a3140;--txt:#e8ecf4;--dim:#8d96a8;--acc:#4f8cff}
+  html,body{margin:0;height:100%;background:var(--bg);overflow:hidden;color:var(--txt);
+    font:16px system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-user-select:none;user-select:none;touch-action:none}
+  #stage{position:fixed;inset:0;background:radial-gradient(900px 700px at 50% 50%,#161d2b,#07090d)}
+  #c,#v{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;background:transparent;display:none}
+  #touch{position:absolute;inset:0;touch-action:none}
+  #hud{position:fixed;left:12px;top:8px;font-size:12px;color:#fff;opacity:.7;pointer-events:none;text-shadow:0 1px 2px #000}
+  #gear{position:fixed;right:10px;top:10px;width:44px;height:44px;border-radius:22px;border:0;background:#000a;color:#fff;
+    font-size:22px;opacity:.35;z-index:4}
+  #gear:active{opacity:1}
+  #panel{position:fixed;right:10px;top:62px;width:min(420px,92vw);max-height:88vh;overflow:auto;background:var(--card);
+    border:1px solid var(--line);border-radius:18px;padding:14px 16px 8px;z-index:6;display:none;box-shadow:0 12px 40px #000c}
+  #panel h3{margin:0 0 10px;font-size:15px;font-weight:600}
+  .row{margin:0 0 12px}.row label{display:block;font-size:12px;color:var(--dim);margin-bottom:6px}
+  .seg{display:flex;gap:6px;flex-wrap:wrap}
+  .seg button{flex:1;min-width:64px;padding:11px 8px;border-radius:12px;border:1px solid var(--line);background:#10131a;color:var(--txt);font-size:14px}
+  .seg button.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+  #start{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    background:radial-gradient(1200px 600px at 50% 30%,#12203a,#000);gap:16px;z-index:8}
+  #start h1{margin:0;font-size:28px;font-weight:650;letter-spacing:.3px}
+  #start button{font-size:20px;padding:15px 38px;border-radius:16px;border:0;background:var(--acc);color:#fff;font-weight:600}
+  #start small{color:var(--dim);max-width:80%;text-align:center;line-height:1.4}
+  .hide{display:none!important}
+  #dockbtn{position:fixed;right:62px;top:10px;width:44px;height:44px;border-radius:22px;border:0;background:#000a;color:#fff;
+    font-size:20px;opacity:.35;z-index:4}
+  #dockbtn:active{opacity:1}
+  #dock{position:fixed;left:50%;top:10px;transform:translateX(-50%);display:none;gap:8px;padding:8px;z-index:6;
+    background:#161a22f2;border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 40px #000c;max-width:96vw;flex-wrap:wrap;justify-content:center}
+  #dock button{width:64px;height:64px;border-radius:16px;border:1px solid var(--line);background:#10131a;color:var(--txt);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:24px;line-height:1;padding:0}
+  #dock button small{font-size:10px;color:var(--dim)}
+  #dock button:active{background:var(--acc);border-color:var(--acc)}
+  #dock button.on{background:#27324a;border-color:var(--acc)}
+  #dock .sep{width:1px;background:var(--line);margin:4px 2px}
+  #toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#161a22ee;border:1px solid var(--line);border-radius:14px;
+    padding:10px 16px;font-size:14px;z-index:7;display:none;max-width:90vw;text-align:center}
+  #pin{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+    background:radial-gradient(1200px 600px at 50% 30%,#12203a,#000);z-index:9}
+  #pin h1{margin:0;font-size:26px;font-weight:650}
+  #pin input{font-size:30px;letter-spacing:10px;text-align:center;width:min(300px,70vw);padding:12px;border-radius:14px;
+    border:1px solid var(--line);background:#10131a;color:#fff;-webkit-user-select:text;user-select:text}
+  #pin button{font-size:19px;padding:13px 34px;border-radius:14px;border:0;background:var(--acc);color:#fff;font-weight:600}
+  #pin small{color:var(--dim)} #pin .err{color:#ff7a7a;min-height:1.2em}
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="c" width="1280" height="720"></canvas>
+  <video id="v" muted playsinline autoplay></video>
+  <div id="touch"></div>
+</div>
+<div id="hud">…</div>
+<button id="gear" aria-label="Настройки">⚙</button>
+<button id="dockbtn" aria-label="Быстрые кнопки">☰</button>
+<div id="dock"></div>
+<div id="toast"></div>
+<div id="panel"></div>
+<div id="pin">
+  <h1>Введите PIN</h1>
+  <input id="pininput" inputmode="numeric" maxlength="6" placeholder="••••••" autocomplete="off">
+  <div class="err" id="pinerr"></div>
+  <button id="pinok">Войти</button>
+  <small>PIN показан в приложении Rudich Auto на телефоне</small>
+</div>
+<div id="start">
+  <h1>Rudich Auto</h1>
+  <button id="go">Запустить</button>
+  <small id="msg">Нажмите, чтобы включить полноэкранный режим и звук</small>
+</div>
+<script>
+(() => {
+  'use strict';
+  const KIND = {CONFIG: 0, KEY: 1, DELTA: 2, AUDIO: 3};
+  const $ = id => document.getElementById(id);
+  const canvas = $('c'), video = $('v'), ctx = canvas.getContext('2d'), touchEl = $('touch');
+  const hud = $('hud'), startEl = $('start'), msg = $('msg'), panel = $('panel');
+  const params = new URLSearchParams(location.search);
+  // Hosted on the Internet (GitHub Pages) the page talks to the phone at its claimed address; served by the phone it uses its own host.
+  const REMOTE = location.hostname === 'app.rudichauto.space';
+  const PHONE = REMOTE ? 'auto.rudichauto.space:8443' : location.host;
+  const HTTP = REMOTE ? 'https://' + PHONE : '';
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  let token = params.get('k') || '';
+  try { token = token || localStorage.getItem('aa_pin') || ''; } catch (e) {}
+
+  let ws = null, cfg = {fit: 'fill', w: 1280, h: 720, uw: 1280, uh: 720, fps: 30, dpi: 213, audio: false, res: 'R720', fitName: 'AUTO', orient: 'L'};
+  let stats = {kbps: 0, fps: 0, q: 0};
+  let srcW = 1280, srcH = 720;
+  let audioCtx = null, audioCursor = 0;
+  let drops = 0, rtt = null, lastMsgAt = performance.now(), toastTimer = 0;
+
+  // ---------------------------------------------------------------- helpers
+  const concat = (a, b) => { const r = new Uint8Array(a.length + b.length); r.set(a, 0); r.set(b, a.length); return r; };
+  function nals(buf) { // Annex-B -> [{type, start, end}] (payload without start code)
+    const out = []; let i = 0, prev = -1;
+    const n = buf.length;
+    while (i + 3 <= n) {
+      if (buf[i] === 0 && buf[i + 1] === 0 && (buf[i + 2] === 1 || (i + 4 <= n && buf[i + 2] === 0 && buf[i + 3] === 1))) {
+        const sc = buf[i + 2] === 1 ? 3 : 4;
+        if (prev >= 0) out[out.length - 1].end = i;
+        prev = i + sc;
+        out.push({type: buf[prev] & 0x1f, start: prev, end: n});
+        i += sc;
+      } else i++;
+    }
+    return out;
+  }
+  const same = (a, b) => !!a && !!b && a.length === b.length && a.every((v, i) => v === b[i]);
+  const hex2 = b => b.toString(16).padStart(2, '0');
+  function codecOf(cfgBytes) {
+    const s = nals(cfgBytes).find(x => x.type === 7);
+    return s ? 'avc1.' + hex2(cfgBytes[s.start + 1]) + hex2(cfgBytes[s.start + 2]) + hex2(cfgBytes[s.start + 3]) : 'avc1.42E01F';
+  }
+
+  // ---------------------------------------------------------------- video back-ends
+  let backend = null;   // {name, config(bytes), frame(kind, ts, bytes), reset()}
+  let spsPps = null;
+
+  // --- A) WebCodecs
+  function makeWebCodecs() {
+    let dec = null, gotKey = false, last = null;
+    const b = {
+      name: 'WebCodecs',
+      config(bytes) {
+        if (dec && same(last, bytes)) return;
+        last = bytes;
+        if (dec) { try { dec.close(); } catch (e) {} }
+        gotKey = false;
+        dec = new VideoDecoder({
+          output: f => {
+            if (canvas.width !== f.displayWidth || canvas.height !== f.displayHeight) {
+              canvas.width = f.displayWidth; canvas.height = f.displayHeight; srcW = f.displayWidth; srcH = f.displayHeight;
+            }
+            ctx.drawImage(f, 0, 0); f.close(); counted++;
+          },
+          error: e => { console.warn('decoder error', e); send('R'); setTimeout(() => last && b.config(last), 200); },
+        });
+        dec.configure({codec: codecOf(bytes), optimizeForLatency: true, avc: {format: 'annexb'}});
+      },
+      frame(kind, ts, data) {
+        if (!dec) return;
+        const key = kind === KIND.KEY;
+        if (!key && !gotKey) { askKeyframe(); return; }
+        // the decoder can't keep up: drop the backlog and resume from the next keyframe instead of showing old pictures
+        if (!key && dec.decodeQueueSize > 6) { gotKey = false; drops++; askKeyframe(); return; }
+        let d = data;
+        if (key) { gotKey = true; if (!nals(data).some(x => x.type === 7) && last) d = concat(last, data); }
+        try { dec.decode(new EncodedVideoChunk({type: key ? 'key' : 'delta', timestamp: Number(ts), data: d})); }
+        catch (e) { console.warn('decode failed', e); }
+      },
+      show() { canvas.style.display = 'block'; video.style.display = 'none'; },
+    };
+    return b;
+  }
+
+  // --- B) MSE with a tiny fMP4 muxer (for browsers without WebCodecs)
+  const u32 = n => [(n >>> 24) & 255, (n >>> 16) & 255, (n >>> 8) & 255, n & 255];
+  const u16 = n => [(n >>> 8) & 255, n & 255];
+  const zeros = n => new Array(n).fill(0);
+  function box(type, ...parts) {
+    let len = 8; const flat = parts.map(p => p instanceof Uint8Array ? p : Uint8Array.from(p));
+    flat.forEach(p => len += p.length);
+    const out = new Uint8Array(len);
+    out.set(u32(len), 0);
+    for (let i = 0; i < 4; i++) out[4 + i] = type.charCodeAt(i);
+    let o = 8; flat.forEach(p => { out.set(p, o); o += p.length; });
+    return out;
+  }
+  const MATRIX = [...u32(0x10000), ...zeros(12), ...u32(0x10000), ...zeros(12), ...u32(0x40000000)];
+
+  function initSegment(sps, pps, w, h) {
+    const avcC = box('avcC', [1, sps[1], sps[2], sps[3], 0xFF, 0xE1, ...u16(sps.length), ...sps, 1, ...u16(pps.length), ...pps]);
+    const avc1 = box('avc1', zeros(6), u16(1), zeros(16), u16(w), u16(h), u32(0x480000), u32(0x480000), zeros(4), u16(1),
+      zeros(32), u16(0x18), [0xFF, 0xFF], avcC);
+    const stsd = box('stsd', zeros(4), u32(1), avc1);
+    const stbl = box('stbl', stsd, box('stts', zeros(4), u32(0)), box('stsc', zeros(4), u32(0)),
+      box('stsz', zeros(4), u32(0), u32(0)), box('stco', zeros(4), u32(0)));
+    const dinf = box('dinf', box('dref', zeros(4), u32(1), box('url ', [0, 0, 0, 1])));
+    const minf = box('minf', box('vmhd', [0, 0, 0, 1], zeros(8)), dinf, stbl);
+    const mdia = box('mdia', box('mdhd', zeros(4), u32(0), u32(0), u32(90000), u32(0), u16(0x55c4), u16(0)),
+      box('hdlr', zeros(4), u32(0), [...'vide'].map(c => c.charCodeAt(0)), zeros(12), [...'VideoHandler\0'].map(c => c.charCodeAt(0))), minf);
+    const trak = box('trak', box('tkhd', [0, 0, 0, 7], u32(0), u32(0), u32(1), u32(0), u32(0), zeros(8), u16(0), u16(0), u16(0), u16(0),
+      MATRIX, u32(w << 16), u32(h << 16)), mdia);
+    const mvhd = box('mvhd', zeros(4), u32(0), u32(0), u32(90000), u32(0), u32(0x10000), u16(0x100), zeros(10), MATRIX, zeros(24), u32(2));
+    const mvex = box('mvex', box('trex', zeros(4), u32(1), u32(1), u32(0), u32(0), u32(0)));
+    const ftyp = box('ftyp', [...'isom'].map(c => c.charCodeAt(0)), u32(512), [...'isomiso2avc1mp41'].map(c => c.charCodeAt(0)));
+    return concat(ftyp, box('moov', mvhd, trak, mvex));
+  }
+
+  function toAvcc(annexB) {
+    const list = nals(annexB).filter(n => n.type !== 9);       // drop access-unit delimiters
+    let total = 0; list.forEach(n => total += 4 + (n.end - n.start));
+    const out = new Uint8Array(total); let o = 0;
+    list.forEach(n => { const len = n.end - n.start; out.set(u32(len), o); out.set(annexB.subarray(n.start, n.end), o + 4); o += 4 + len; });
+    return out;
+  }
+
+  function makeMse() {
+    let ms = null, sb = null, queue = [], seq = 1, dts = 0, ready = false, gotKey = false, last = null, dur = 3000, pre = null;
+    const b = {
+      name: 'MSE',
+      config(bytes) {
+        if (ms && same(last, bytes)) return;
+        last = bytes;
+        const all = nals(bytes);
+        const s = all.find(x => x.type === 7), p = all.find(x => x.type === 8);
+        if (!s || !p) return;
+        const sps = bytes.subarray(s.start, s.end), pps = bytes.subarray(p.start, p.end);
+        const codec = codecOf(bytes);
+        const mime = `video/mp4; codecs="${codec}"`;
+        console.log('MSE config', mime, 'sps', sps.length, 'pps', pps.length, 'first sps bytes', [...sps.slice(0, 8)].join(','));
+        if (!window.MediaSource || !MediaSource.isTypeSupported(mime)) { msg.textContent = 'Браузер не поддерживает ни WebCodecs, ни MSE/H.264'; return; }
+        ready = false; gotKey = false; queue = []; pre = null; seq = 1; dts = 0; dur = Math.round(90000 / (cfg.fps || 30));
+        if (ms) { try { URL.revokeObjectURL(video.src); } catch (e) {} }
+        ms = new MediaSource();
+        video.src = URL.createObjectURL(ms);
+        ms.addEventListener('sourceopen', () => {
+          sb = ms.addSourceBuffer(mime);
+          sb.mode = 'sequence';
+          sb.addEventListener('updateend', pump);
+          sb.addEventListener('error', () => console.warn('sourcebuffer error', video.error && video.error.message));
+          sb.appendBuffer(initSegment(sps, pps, srcW, srcH));
+          ready = true;
+          video.play().catch(() => {});
+          const held = pre; pre = null;
+          if (held) held.forEach(([k, t, d]) => b.frame(k, t, d));
+        }, {once: true});
+      },
+      frame(kind, ts, data) {
+        const key = kind === KIND.KEY;
+        if (!ready) {   // MediaSource still opening: hold everything from the first keyframe on
+          if (key) pre = [];
+          if (pre && pre.length < 90) pre.push([kind, ts, data.slice()]); else if (!pre) askKeyframe();
+          return;
+        }
+        if (!key && !gotKey) { askKeyframe(); return; }
+        if (key) gotKey = true;
+        if (queue.length > 30) { queue = []; gotKey = false; send('R'); return; }   // fell behind: wait for next keyframe
+        const avcc = toAvcc(data);
+        const hi = Math.floor(dts / 4294967296), lo = dts >>> 0;
+        const trun = box('trun', [0, 0, 7, 1], u32(1), u32(0), u32(dur), u32(avcc.length), u32(key ? 0x02000000 : 0x01010000));
+        const traf = box('traf', box('tfhd', [0, 2, 0, 0], u32(1)), box('tfdt', [1, 0, 0, 0], u32(hi), u32(lo)), trun);
+        const moof = box('moof', box('mfhd', zeros(4), u32(seq++)), traf);
+        new DataView(moof.buffer).setUint32(8 + 16 + 8 + 16 + 20 + 8 + 4 + 4, moof.length + 8);
+        const mdat = box('mdat', avcc);
+        dts += dur;
+        queue.push(concat(moof, mdat));
+        pump();
+      },
+      show() { canvas.style.display = 'none'; video.style.display = 'block'; },
+    };
+    function pump() {
+      if (!sb || sb.updating || !ms || ms.readyState !== 'open') return;
+      if (queue.length) { try { sb.appendBuffer(queue.shift()); } catch (e) { console.warn('append failed', e); } return; }
+      // idle: stay near the live edge and trim old data
+      try {
+        if (sb.buffered.length) {
+          const end = sb.buffered.end(sb.buffered.length - 1), start = sb.buffered.start(0);
+          if (end - video.currentTime > 0.3) video.currentTime = end - 0.04;
+          if (video.currentTime - start > 20) sb.remove(start, video.currentTime - 5);
+        }
+        if (video.paused) video.play().catch(() => {});
+      } catch (e) {}
+    }
+    setInterval(pump, 250);
+    return b;
+  }
+
+  async function chooseBackend() {
+    let useWc = typeof VideoDecoder !== 'undefined' && !params.get('mse');
+    if (useWc) {
+      try {
+        const r = await VideoDecoder.isConfigSupported({codec: 'avc1.42E01F', avc: {format: 'annexb'}});
+        useWc = !!r.supported;
+      } catch (e) { useWc = false; }
+    }
+    backend = useWc ? makeWebCodecs() : makeMse();
+    backend.show();
+    console.log('video backend:', backend.name);
+    msg.textContent = `Видео: ${backend.name === 'WebCodecs' ? 'WebCodecs (быстрый режим)' : 'MSE (запасной режим, задержка чуть выше)'}. Нажмите, чтобы включить полноэкранный режим и звук`;
+    if (backend.name !== 'WebCodecs' && !window.isSecureContext && typeof VideoDecoder === 'undefined') {
+      // WebCodecs exists only on HTTPS (or localhost) pages, so over plain http the browser hides it
+      msg.innerHTML = msg.textContent + `<br><br>Быстрый режим доступен по защищённому адресу: <b>https://${location.hostname}:8443</b> (браузер предупредит о сертификате, это нормально).`;
+    }
+  }
+
+  // ---------------------------------------------------------------- audio
+  function onAudio(channel, data) {
+    if (!audioCtx || !cfg.audio) return;
+    const media = channel === 6;
+    const rate = media ? 48000 : 16000, chans = media ? 2 : 1;
+    const samples = Math.floor(data.byteLength / 2 / chans);
+    if (samples <= 0) return;
+    const view = new DataView(data.buffer, data.byteOffset, samples * 2 * chans);
+    const buf = audioCtx.createBuffer(chans, samples, rate);
+    for (let c = 0; c < chans; c++) {
+      const ch = buf.getChannelData(c);
+      for (let i = 0; i < samples; i++) ch[i] = view.getInt16((i * chans + c) * 2, true) / 32768;
+    }
+    const src = audioCtx.createBufferSource();
+    src.buffer = buf; src.connect(audioCtx.destination);
+    const now = audioCtx.currentTime;
+    if (audioCursor < now + 0.02) audioCursor = now + 0.06;
+    if (audioCursor > now + 0.5) audioCursor = now + 0.06;
+    src.start(audioCursor);
+    audioCursor += buf.duration;
+  }
+
+  // ---------------------------------------------------------------- socket
+  let counted = 0, lastT = performance.now(), shownFps = 0;
+  function send(t) { if (ws && ws.readyState === 1) ws.send(t); }
+  let lastAsk = 0;
+  function askKeyframe() { const n = performance.now(); if (n - lastAsk > 1500) { lastAsk = n; send('R'); } }
+
+  function toast(text, ms) {
+    const t = $('toast'); t.textContent = text; t.style.display = 'block';
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.style.display = 'none'; }, ms || 4000);
+  }
+  // AUTO fit: Android Auto draws its UI into the top-left (uw x uh) part of the frame; show exactly that part, full window.
+  function autoScale() {
+    const r = touchEl.getBoundingClientRect();
+    return Math.max(r.width / (cfg.uw || cfg.w), r.height / (cfg.uh || cfg.h));
+  }
+  function layout() {
+    for (const el of [canvas, video]) {
+      if (cfg.fitName === 'AUTO') {
+        const s = autoScale();
+        el.style.inset = 'auto'; el.style.left = (-(cfg.ox || 0) * s) + 'px'; el.style.top = (-(cfg.oy || 0) * s) + 'px';
+        el.style.width = (cfg.w * s) + 'px'; el.style.height = (cfg.h * s) + 'px'; el.style.objectFit = 'fill';
+      } else {
+        el.style.inset = '0'; el.style.left = el.style.top = '';
+        el.style.width = '100%'; el.style.height = '100%';
+      }
+    }
+  }
+  // Tell the phone the window's shape so it draws for it (one renegotiation if it changed); debounced against resize storms.
+  let viewTimer = 0, lastView = '';
+  function reportView() {
+    clearTimeout(viewTimer);
+    viewTimer = setTimeout(() => {
+      const r = touchEl.getBoundingClientRect(), v = `V ${Math.round(r.width)} ${Math.round(r.height)}`;
+      if (v !== lastView) { lastView = v; send(v); }
+    }, 700);
+  }
+  addEventListener('resize', () => { layout(); reportView(); });
+  function applyConfig(c) {
+    if (c.deg !== undefined && c.deg !== cfg.deg && cfg.deg !== undefined) {
+      toast(c.deg > cfg.deg ? `Связь не справляется — качество снижено: ${c.eff}` : `Связь наладилась — качество: ${c.eff}`, 5000);
+    }
+    cfg = Object.assign(cfg, c);
+    canvas.style.objectFit = cfg.fit; video.style.objectFit = cfg.fit;
+    layout();
+    if (!backend || backend.name !== 'WebCodecs') { srcW = cfg.w; srcH = cfg.h; }
+    renderPanel();
+  }
+
+  function connect() {
+    const proto = REMOTE || location.protocol === 'https:' ? 'wss' : 'ws';
+    ws = new WebSocket(`${proto}://${PHONE}/ws?k=${encodeURIComponent(token)}`);
+    ws.binaryType = 'arraybuffer';
+    ws.onopen = () => {
+      hud.textContent = 'подключено, жду видео…'; lastMsgAt = performance.now(); rtt = null;
+      lastView = ''; reportView();
+      send(`I ${backend ? backend.name : '?'} | ${screen.width}x${screen.height}@${devicePixelRatio} | ${navigator.userAgent}`);
+      if (night) send('N 1');
+    };
+    ws.onmessage = ev => {
+      lastMsgAt = performance.now();
+      if (typeof ev.data === 'string') {
+        let j; try { j = JSON.parse(ev.data); } catch (e) { return; }
+        if (j.type === 'config') applyConfig(j);
+        else if (j.type === 'stats') stats = j;
+        else if (j.type === 'pong') { const d = Math.round(performance.now() - Number(j.t)); rtt = rtt === null ? d : Math.round(rtt * 0.6 + d * 0.4); stats.q = j.q; }
+        return;
+      }
+      const b = new Uint8Array(ev.data);
+      const kind = b[0], aux = b[1];
+      const ts = new DataView(ev.data).getBigUint64(2, false);
+      const payload = b.subarray(10);
+      if (kind === KIND.AUDIO) return onAudio(aux, payload);
+      if (!backend) return;
+      if (kind === KIND.CONFIG) { spsPps = payload.slice(); backend.config(spsPps); return; }
+      backend.frame(kind, ts, payload);
+      if (backend.name === 'MSE') counted++;
+    };
+    ws.onclose = () => {
+      hud.textContent = 'связь потеряна, переподключаюсь…';
+      setTimeout(async () => { if ((await authOk(token)) === 'bad') { try { localStorage.removeItem('aa_pin'); } catch (e) {} token = ''; await gate(); } connect(); }, 1500);
+    };
+    ws.onerror = () => { try { ws.close(); } catch (e) {} };
+  }
+
+  // ---------------------------------------------------------------- touch (maps through the fit mode)
+  function contentRect() {
+    const r = touchEl.getBoundingClientRect();
+    const W = srcW || 1280, H = srcH || 720;
+    if (cfg.fitName === 'AUTO') { const s = autoScale(); return {x: r.left, y: r.top, w: (cfg.uw || W) * s, h: (cfg.uh || H) * s}; }
+    if (cfg.fit === 'fill') return {x: r.left, y: r.top, w: r.width, h: r.height};
+    const s = cfg.fit === 'cover' ? Math.max(r.width / W, r.height / H) : Math.min(r.width / W, r.height / H);
+    const w = W * s, h = H * s;
+    return {x: r.left + (r.width - w) / 2, y: r.top + (r.height - h) / 2, w, h};
+  }
+  const active = new Map(); let nextId = 0; const freeIds = [];
+  const clamp01 = v => Math.max(0, Math.min(1, v));
+  function norm(e) { const c = contentRect(); return {x: clamp01((e.clientX - c.x) / c.w), y: clamp01((e.clientY - c.y) / c.h)}; }
+  const list = () => [...active.values()].map(p => `${p.id}:${p.x.toFixed(4)}:${p.y.toFixed(4)}`).join(',');
+  // AA actions: 0 down, 1 up, 2 move, 3 cancel, 5 pointer down, 6 pointer up
+  touchEl.addEventListener('pointerdown', e => {
+    touchEl.setPointerCapture(e.pointerId);
+    const id = freeIds.length ? freeIds.shift() : nextId++;
+    const n = norm(e); active.set(e.pointerId, {id, x: n.x, y: n.y});
+    send(`T ${active.size === 1 ? 0 : 5} ${[...active.keys()].indexOf(e.pointerId)} ${list()}`);
+    e.preventDefault();
+  });
+  touchEl.addEventListener('pointermove', e => {
+    const p = active.get(e.pointerId); if (!p) return;
+    const n = norm(e); p.x = n.x; p.y = n.y; send(`T 2 0 ${list()}`); e.preventDefault();
+  });
+  function release(e, cancel) {
+    const p = active.get(e.pointerId); if (!p) return;
+    const n = norm(e); p.x = n.x; p.y = n.y;
+    const idx = [...active.keys()].indexOf(e.pointerId), last = active.size === 1;
+    send(`T ${cancel ? 3 : (last ? 1 : 6)} ${idx} ${list()}`);
+    active.delete(e.pointerId); freeIds.push(p.id); freeIds.sort((a, b) => a - b);
+    if (!active.size) { freeIds.length = 0; nextId = 0; }
+    e.preventDefault();
+  }
+  touchEl.addEventListener('pointerup', e => release(e, false));
+  touchEl.addEventListener('pointercancel', e => release(e, true));
+  touchEl.addEventListener('contextmenu', e => e.preventDefault());
+
+  // ---------------------------------------------------------------- settings panel
+  const GROUPS = [
+    ['Разрешение', 'res', [['R480', '480p'], ['R720', '720p'], ['R1080', '1080p']], c => c.res],
+    ['Ориентация', 'orient', [['L', 'Горизонтально'], ['P', 'Вертикально']], c => c.orient],
+    ['Частота кадров', 'fps', [[30, '30'], [60, '60']], c => c.fps],
+    ['Масштаб интерфейса', 'dpi', [[160, 'Мелко'], [213, 'Норм'], [260, 'Крупно'], [320, 'Очень']], c => c.dpi],
+    ['Масштаб картинки', 'fit', [['AUTO', 'Без искажений'], ['FIT', 'Широкий, панель слева'], ['FILL', 'Заполнить'], ['STRETCH', 'Растянуть']], c => c.fitName],
+    ['Звук', 'audio', [[0, 'На телефоне'], [1, 'В браузере']], c => c.audio ? 1 : 0],
+    ['Авто-снижение качества при плохой связи', 'adapt', [[1, 'Вкл'], [0, 'Выкл']], c => c.adapt === false ? 0 : 1],
+  ];
+  function renderPanel() {
+    if (panel.style.display !== 'block') return;
+    panel.innerHTML = '<h3>Настройки потока</h3>';
+    GROUPS.forEach(([title, key, opts, cur]) => {
+      const row = document.createElement('div'); row.className = 'row';
+      row.innerHTML = `<label>${title}</label>`;
+      const seg = document.createElement('div'); seg.className = 'seg';
+      opts.forEach(([val, label]) => {
+        const bt = document.createElement('button'); bt.textContent = label;
+        if (String(cur(cfg)) === String(val)) bt.className = 'on';
+        bt.onclick = () => send(`S ${key} ${val}`);
+        seg.appendChild(bt);
+      });
+      row.appendChild(seg); panel.appendChild(row);
+    });
+    const note = document.createElement('div');
+    note.style.cssText = 'font-size:11px;color:var(--dim);margin:2px 0 10px;line-height:1.35';
+    note.textContent = (cfg.deg > 0 ? `Сейчас из-за слабой связи работает ${cfg.eff}. ` : '') + 'Смена разрешения, кадров, масштаба интерфейса и звука перезапускает сессию (1–2 секунды). 90 fps в Android Auto не поддерживается: только 30 и 60.';
+    panel.appendChild(note);
+  }
+  $('gear').onclick = () => { dockEl.style.display = 'none'; panel.style.display = panel.style.display === 'block' ? 'none' : 'block'; renderPanel(); };
+  // tapping the video area closes the panel
+  touchEl.addEventListener('pointerdown', () => {
+    if (panel.style.display === 'block') panel.style.display = 'none';
+    if (dockEl.style.display === 'flex') dockEl.style.display = 'none';
+  }, true);
+
+  // ---------------------------------------------------------------- quick buttons (☰)
+  // Android key codes the phone's Android Auto understands (announced in the service discovery).
+  const KEYS = {HOME: 3, BACK: 4, CALL: 5, MUSIC: 209, NAV: 65538, PREV: 88, PLAY: 85, NEXT: 87};
+  let night = false, dockTimer = 0;
+  try { night = localStorage.getItem('aa_night') === '1'; } catch (e) {}
+  const dockEl = $('dock');
+  function pressKey(code) { send(`K ${code} 1`); setTimeout(() => send(`K ${code} 0`), 70); }
+  function fullscreen() {
+    try {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen().catch(() => {});
+    } catch (e) {}
+  }
+  const DOCK = [
+    ['⌂', 'Домой', () => pressKey(KEYS.HOME)],
+    ['←', 'Назад', () => pressKey(KEYS.BACK)],
+    ['🧭', 'Карта', () => pressKey(KEYS.NAV)],
+    ['☎', 'Телефон', () => pressKey(KEYS.CALL)],
+    ['♫', 'Музыка', () => pressKey(KEYS.MUSIC)],
+    null,
+    ['⏮', 'Пред.', () => pressKey(KEYS.PREV)],
+    ['⏯', 'Пауза', () => pressKey(KEYS.PLAY)],
+    ['⏭', 'След.', () => pressKey(KEYS.NEXT)],
+    null,
+    ['🌙', 'Ночь', b => { night = !night; send(`N ${night ? 1 : 0}`); try { localStorage.setItem('aa_night', night ? '1' : '0'); } catch (e) {} b.classList.toggle('on', night); }, () => night],
+    ['⟳', 'Обновить', () => { send('R'); toast('Запросил свежую картинку', 1500); }],
+    ['⛶', 'Экран', fullscreen],
+  ];
+  DOCK.forEach(d => {
+    if (!d) { const sp = document.createElement('div'); sp.className = 'sep'; dockEl.appendChild(sp); return; }
+    const b = document.createElement('button');
+    b.innerHTML = `${d[0]}<small>${d[1]}</small>`;
+    if (d[3] && d[3]()) b.classList.add('on');
+    b.onclick = () => { d[2](b); armDock(); };
+    dockEl.appendChild(b);
+  });
+  function armDock() { clearTimeout(dockTimer); dockTimer = setTimeout(() => { dockEl.style.display = 'none'; }, 7000); }
+  $('dockbtn').onclick = () => {
+    panel.style.display = 'none';
+    const show = dockEl.style.display !== 'flex';
+    dockEl.style.display = show ? 'flex' : 'none';
+    if (show) armDock();
+  };
+
+  // ---------------------------------------------------------------- start
+  $('go').onclick = () => {
+    startEl.classList.add('hide');
+    try { audioCtx = new (window.AudioContext || window.webkitAudioContext)({latencyHint: 'interactive'}); audioCtx.resume(); } catch (e) {}
+    try { document.documentElement.requestFullscreen().catch(() => {}); } catch (e) {}
+  };
+
+  setInterval(() => {
+    const now = performance.now();
+    shownFps = Math.round(counted * 1000 / (now - lastT)); counted = 0; lastT = now;
+    if (ws && ws.readyState === 1) {
+      // the phone sends a stats message every 2 s even when the picture is still; silence means a dead socket
+      if (now - lastMsgAt > 7000) { console.warn('socket silent, reconnecting'); try { ws.close(); } catch (e) {} return; }
+      send('P ' + Math.round(now));
+      const mbit = (stats.kbps / 1000).toFixed(1);
+      if (shownFps > 0) {
+        const lag = rtt === null ? '' : ` · пинг ${rtt} мс`;
+        const q = cfg.deg > 0 ? ` · ⬇ ${cfg.eff}` : '';
+        hud.textContent = `${shownFps} fps · ${mbit} Мбит/с · ${backend ? backend.name : ''}${lag}${q}`;
+        hud.style.color = rtt !== null && rtt > 250 ? '#ffb454' : '#fff';
+      } else {
+        hud.style.color = '#fff';
+        const why = stats.note || (stats.aa && !/подключён/.test(stats.aa) ? stats.aa : '');
+        hud.textContent = (why || 'жду видео… (экран не меняется — это нормально)') + (rtt === null ? '' : ` · пинг ${rtt} мс`);
+      }
+    }
+  }, 1000);
+
+  window.__dbg = () => ({backend: backend && backend.name, buf: video.buffered.length ? [video.buffered.start(0), video.buffered.end(video.buffered.length - 1)] : null,
+    t: video.currentTime, rs: video.readyState, err: video.error && video.error.message});
+  async function authOk(pin) {
+    try { const r = await fetch(HTTP + '/auth?k=' + encodeURIComponent(pin), {cache: 'no-store'}); return r.status === 200 ? 'ok' : (r.status === 429 ? 'blocked' : 'bad'); }
+    catch (e) { return 'net'; }
+  }
+  async function gate() {
+    // Phone not reachable yet (hotspot or VPN still coming up): keep looking instead of asking for a PIN nobody can check.
+    let o = null;
+    for (let i = 0; !o; i++) {
+      try { o = await (await fetch(HTTP + '/open', {cache: 'no-store'})).json(); }
+      catch (e) { if (i === 0 || i % 5 === 0) msg.textContent = 'Ищу телефон… Включена ли точка доступа и запущен ли Rudich Auto?'; await sleep(1500); }
+    }
+    if (o.pin === false) return true;
+    if (token) {
+      const r = await authOk(token);
+      if (r === 'ok') { try { localStorage.setItem('aa_pin', token); } catch (e) {} return true; }
+      if (r === 'net') return true;   // phone not reachable yet; the socket will keep retrying
+    }
+    const box = $('pin'), input = $('pininput'), err = $('pinerr');
+    box.style.display = 'flex'; input.value = ''; input.focus();
+    return new Promise(res => {
+      const submit = async () => {
+        const r = await authOk(input.value.trim());
+        if (r === 'ok') { token = input.value.trim(); try { localStorage.setItem('aa_pin', token); } catch (e) {} box.style.display = 'none'; res(true); }
+        else { err.textContent = r === 'blocked' ? 'Слишком много попыток, подождите 30 секунд' : 'Неверный PIN'; input.select(); }
+      };
+      $('pinok').onclick = submit;
+      input.onkeydown = e => { if (e.key === 'Enter') submit(); };
+    });
+  }
+  window.__dbg2 = () => token;
+  gate().then(() => chooseBackend()).then(connect);
+})();
+</script>
+</body>
+</html>
