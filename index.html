@@ -326,7 +326,7 @@
   let audioCtx = null, audioCursor = 0;
   let drops = 0, rtt = null, lastMsgAt = performance.now(), toastTimer = 0;
   // What the waiting room shows: how far the chain phone -> Android Auto -> picture has got.
-  const L = {armed: false, reach: false, wsOpen: false, gotVideo: false, lost: false, tries: 0, t0: performance.now(), stage: ''};
+  const L = {dropAt: 0, armed: false, reach: false, wsOpen: false, gotVideo: false, lost: false, tries: 0, t0: performance.now(), stage: ''};
 
   // ---------------------------------------------------------------- helpers
   const concat = (a, b) => { const r = new Uint8Array(a.length + b.length); r.set(a, 0); r.set(b, a.length); return r; };
@@ -388,6 +388,7 @@
         catch (e) { console.warn('decode failed', e); }
       },
       show() { canvas.style.display = 'block'; video.style.display = 'none'; },
+      reset() { gotKey = false; },   // new socket: the stream restarts, don't decode deltas against the old picture
     };
     return b;
   }
@@ -487,6 +488,7 @@
         pump();
       },
       show() { canvas.style.display = 'none'; video.style.display = 'block'; },
+      reset() { gotKey = false; queue = []; },
     };
     function pump() {
       if (!sb || sb.updating || !ms || ms.readyState !== 'open') return;
@@ -601,6 +603,7 @@
       hud.textContent = 'подключено, жду видео…'; lastMsgAt = performance.now(); rtt = null;
       L.wsOpen = true; L.reach = true; L.lost = false; refresh();
       lastView = ''; reportView();
+      if (backend && backend.reset) backend.reset();
       send(`I ${backend ? backend.name : '?'} | ${screen.width}x${screen.height}@${devicePixelRatio} | ${navigator.userAgent}`);
       if (night) send('N 1');
     };
@@ -625,6 +628,7 @@
     };
     ws.onclose = () => {
       hud.textContent = 'связь потеряна, переподключаюсь…';
+      if (L.gotVideo) L.dropAt = performance.now();   // keep the last picture on screen while we reconnect (see refresh)
       if (L.wsOpen) L.reach = false; L.wsOpen = false; L.gotVideo = false; stats = {kbps: 0, fps: 0, q: 0};
       if (L.armed) { L.lost = true; L.t0 = performance.now(); } refresh();
       setTimeout(async () => { if ((await authOk(token)) === 'bad') { try { localStorage.removeItem('aa_pin'); } catch (e) {} token = ''; await gate(); } connect(); }, 1500);
@@ -810,7 +814,11 @@
     const canArm = phoneOk && L.wsOpen && !L.armed && stage !== 'lost';
     go.disabled = !canArm;
     $('golabel').textContent = L.armed && stage !== 'ready' ? 'Экран готов · ждём видео' : COPY[stage].cta;
-    if (L.armed && L.gotVideo && L.wsOpen) startEl.classList.add('off'); else startEl.classList.remove('off');
+    // A short break in the connection must not cover the picture with the waiting room (it looks like a black flash):
+    // the last frame stays on the canvas and the HUD says what is going on. Only a long outage brings the waiting room back.
+    if (L.gotVideo && L.wsOpen) L.dropAt = 0;
+    const grace = L.dropAt > 0 && performance.now() - L.dropAt < 20000;
+    if (L.armed && ((L.gotVideo && L.wsOpen) || grace)) startEl.classList.add('off'); else startEl.classList.remove('off');
     startEl.classList.toggle('armed', L.armed);
     $('clock').textContent = stage === 'ready' ? 'готово' : mm(performance.now() - L.t0);
   }
